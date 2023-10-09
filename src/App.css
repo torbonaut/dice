@@ -24,5 +24,7 @@ main {
     color: orange;
 }
 
-button.action { background: mediumseagreen; color: white; font-size: 3em; padding: 1em 2em; border: 0; cursor: pointer; transition: all 0.5s ease; }
+button.action { background: mediumseagreen; color: white; font-size: 3em; padding: 0.75em 1.5em; border: 0; cursor: pointer; transition: all 0.5s ease; }
 button.action:hover { background: seagreen; }
+button.action.first { background: limegreen;}
+button.action.first:hover { background: lime; }
