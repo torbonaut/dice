@@ -1,6 +1,7 @@
 import "./App.css";
 import { Dice } from "./components/Dice.tsx";
 import { useState } from "react";
+import { matchRules } from "./functions/match-dice.ts";
 
 const INITIAL_DICE_VALUES = [
   { value: 0, selected: false },
@@ -35,10 +36,8 @@ function App() {
         el.value = Math.floor(Math.random() * 6);
       }
     });
-    values.sort((a, b) => a.value - b.value);
-    console.log(values);
-    setDiceValues(values);
 
+    setDiceValues(values);
     setDicedCount((current) => (current === 1 ? 3 : current - 1));
   };
 
@@ -50,6 +49,7 @@ function App() {
             <Dice
               value={el.value}
               selected={el.selected}
+              lastRoll={dicedCount === 3}
               onClick={() => onClickHandler(index)}
               key={index}
             />
@@ -62,6 +62,17 @@ function App() {
       >
         {"roll the dice! (" + dicedCount + "x)"}
       </button>
+      <p></p>
+      <pre>
+        {matchRules(diceValues.map((el) => el.value + 1)).map(
+          (el) =>
+            el[1] > 0 && (
+              <div key={el[0]}>
+                {el[0]}: {el[1]}
+              </div>
+            ),
+        )}
+      </pre>
     </>
   );
 }

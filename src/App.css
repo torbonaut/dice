@@ -20,8 +20,12 @@ main {
     transition: all 0.5s ease;
 }
 
-.dice.fixed {
+.dice.selected {
     color: orange;
+}
+
+.dice.lastRoll, .dice.selected.lastRoll {
+    color: lightskyblue;
 }
 
 button.action { background: mediumseagreen; color: white; font-size: 3em; padding: 0.75em 1.5em; border: 0; cursor: pointer; transition: all 0.5s ease; }
